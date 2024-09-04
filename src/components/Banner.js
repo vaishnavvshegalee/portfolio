@@ -39,6 +39,14 @@ export const Banner = () => {
             setDelta(500);
         }
     }
+    const myResume = () => {
+        const link = document.createElement('a');
+        link.href = 'https://drive.google.com/file/d/1hECn3OUjlJWT_G_yddu87fG2kWgT1Jsn/view?usp=sharing';
+        link.setAttribute('download', 'resume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
     return (
         <section className="banner" id="home">
             <Container>
@@ -57,7 +65,7 @@ export const Banner = () => {
                                     asset to any team, poised to drive innovation and deliver
                                     exceptional result in the fast-paced world of software
                                     development.</p>
-                                <button onClick={() => alert('resume')}>Let's connect <ArrowRightCircle /> </button>
+                                <button onClick={() => myResume()} >Resume<ArrowRightCircle /> </button>
                             </div>
                         </TrackVisibility>
                     </Col>

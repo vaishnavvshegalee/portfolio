@@ -37,39 +37,18 @@ export const Projects = () => {
                         <TrackVisibility>
                             <div className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                                 <h2>Projects</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt recusandae nostrum vero aperiam ex reiciendis, voluptatum assumenda libero dolorum odio alias odit debitis hic nulla quod fuga beatae sequi quisquam est doloribus.</p>
-                                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                                        <Nav.Item>
-                                            <Nav.Link eventKey="first">Tab One</Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item>
-                                            <Nav.Link eventKey="second">Tab Two</Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item>
-                                            <Nav.Link eventKey="third">Tab Three
-                                            </Nav.Link>
-                                        </Nav.Item>
-                                    </Nav>
-                                    <Tab.Content>
-                                        <Tab.Pane eventKey="first">
-                                            <Row>
-                                                {
-                                                    projects.map((project, index) => {
-                                                        return (
-                                                            <ProjectCards
-                                                                key={index}
-                                                                {...project}
-                                                            />
-                                                        )
-                                                    })
-                                                }
-                                            </Row>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="second">Lorem Ipsum</Tab.Pane>
-                                        <Tab.Pane eventKey="third">Lorem Ipsum</Tab.Pane>
-                                    </Tab.Content>
-                                </Tab.Container>
+                                <Row>
+                                    {
+                                        projects.map((project, index) => {
+                                            return (
+                                                <ProjectCards
+                                                    key={index}
+                                                    {...project}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </Row>
                             </div>
                         </TrackVisibility>
                     </Col>

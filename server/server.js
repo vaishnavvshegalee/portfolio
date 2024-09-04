@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const morgan = require('morgan');
 
 const app = express();
 app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
 app.use('/', router);
 const PORT = process.env.PORT | 5000;
@@ -15,9 +17,11 @@ app.listen(PORT, () => {
 
 const contactEmail = nodemailer.createTransport({
     service: 'gmail',
+    port: 465,
+    secure: true,
     auth: {
-        user: 'vaishnavvshegalee@gmail.com',
-        pass: 'vaishnav@333'
+        user: 'vaishnavshegale333@gmail.com',
+        pass: 'teqd ozsj bwse shlv',
     }
 });
 
@@ -39,9 +43,9 @@ router.post('/contact', (req, res) => {
         to: 'vaishnavvshegalee@gmail.com',
         subject: 'Contact Form Submission - Portfolio',
         html: `<p>Name: ${name}</p>
-              <p>Name: ${email}</p>
-              <p>Name: ${phone}</p>
-              <p>Name: ${message}</p>`
+              <p>Email: ${email}</p>
+              <p>Phone: ${phone}</p>
+              <p>Message: ${message}</p>`
     };
     contactEmail.sendMail(mail, (error) => {
         if (error) {
